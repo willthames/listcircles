@@ -7,7 +7,16 @@
   </head>
 
   <body>
+    <script type="text/javascript">
+      twttr.anywhere(function (T) {
+        T("#login").connectButton();
+        T.hovercards();
+      });
+    </script>
+
     <h1>List Circles</h1>
+    <span id="login"></span>
+
   </body>
 </html>
 
