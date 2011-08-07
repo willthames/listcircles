@@ -88,7 +88,11 @@
           $.each(data.lists, function(id, list) { 
             $("#lists").append('<li>' + list.name + '</li>');
           });
-        });
+        })
+        .success(function() { alert("second success"); })
+        .error(function() { alert("error"); })
+        .complete(function() { alert("complete"); });
+        
       };
 
       function hideLists(T) { 
