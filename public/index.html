@@ -78,15 +78,14 @@
         profileImage = currentUser.data('profile_image_url');
         profileImageTag = "<img src='" + profileImage + "'/>";
         $('#twitter-connect-placeholder').empty();
-        $('#twitter-connect-placeholder').append("Hello " + profileImageTag + " " + screenName);
+        $('#twitter-connect-placeholder').append("Hello " + profileImageTag + " @" + screenName);
         $("#twitter-connect-placeholder").append('<button id="signout" type="button">Sign out of Twitter</button>');
         $("#signout").bind("click", function () {
           twttr.anywhere.signOut();
         });
         $.get('http://api.twitter.com/1/lists.json?screen_name=' + screenName, function(data) { 
-          
-          $(data["lists"]).each(data, function(key, val) { 
-            $("#lists").append('<li>' + data["lists"][key]["slug"] + '</li>');
+          $.each(data["lists"], function(key, val) { 
+            $("#lists").append('<li>' + data["lists"][key]["name"] + '</li>');
           });
         });
       };
@@ -112,6 +111,8 @@
         T.bind("signOut", function(e) { 
           hideLists(T);
         });
+
+        T.hovercards();
 
       }); // end twttr.anywhere
     }); // end jQuery
