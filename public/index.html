@@ -67,6 +67,7 @@
   <script type="text/javascript">
     jQuery(function() { 
 
+
       function showLists(currentUser) { 
         var currentUser,
             screenName,
@@ -81,6 +82,9 @@
         $("#twitter-connect-placeholder").append('<button id="signout" type="button">Sign out of Twitter</button>');
         $("#signout").bind("click", function () {
           twttr.anywhere.signOut();
+        });
+        $.get('http://api.twitter.com/1/lists/all', function(data) { 
+          $('#lists').html(data);
         });
       };
 
@@ -127,6 +131,7 @@
   
   <article>
     <span id="twitter-connect-placeholder"></span>
+    <span id="lists"></span>
   </article>
   
   <footer>
