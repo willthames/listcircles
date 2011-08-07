@@ -82,25 +82,21 @@
         });
       };
 
-      function hideLists() { 
-        $("#twitter-connect-placeholder").
-      };
-
       twttr.anywhere(function (T) {
 
         if (T.isConnected()) {
-          showLists(T.currentUser)
+          showLists(T.currentUser);
         } 
         else {
-          T("#twitter-connect-placeholder").connectButton
+          T("#twitter-connect-placeholder").connectButton();
         }
 
-        T.bind("authComplete"), function(e, user) { 
-          showLists(user)
+        T.bind("authComplete", function(e, user) { 
+          showLists(user);
         });
 
         T.bind("signOut", function(e) { 
-          T("#twitter-connect-placeholder").connectButton
+          T("#twitter-connect-placeholder").connectButton();
         });
 
       }); // end twttr.anywhere
