@@ -83,14 +83,18 @@
         });
       };
 
+      function hideLists(T) { 
+        $('#twitter-connect-placeholder').empty();
+        T("#twitter-connect-placeholder").connectButton();
+      };
+
       twttr.anywhere(function (T) {
 
         if (T.isConnected()) {
           showLists(T.currentUser);
         } 
         else {
-          $('#twitter-connect-placeholder').empty();
-          T("#twitter-connect-placeholder").connectButton();
+          hideLists(T);
         }
 
         T.bind("authComplete", function(e, user) { 
@@ -98,7 +102,7 @@
         });
 
         T.bind("signOut", function(e) { 
-          T("#twitter-connect-placeholder").connectButton();
+          hideLists(T);
         });
 
       }); // end twttr.anywhere
