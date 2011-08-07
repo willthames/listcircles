@@ -1,0 +1,25 @@
+header { 
+  background-color: lightblue;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+header h1 a { 
+  font-size: large;
+  font-weight: bold; 
+  text-decoration: none;
+  color: white; 
+}
+
+header nav ol a { 
+  text-align: right; 
+  text-decoration: none;
+  color: white; 
+}
+
+footer { 
+  padding: 10px;
+  margin-top: 10px;
+  background-color: lightblue;
+  color: white;
+}
