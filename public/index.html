@@ -84,6 +84,7 @@
           twttr.anywhere.signOut();
         });
         $.getJSON('http://api.twitter.com/1/lists.json?screen_name=' + screenName, function(data) { 
+          alert(data);
           $.each(data.lists, function(id, list) { 
             $("#lists").append('<li>' + list.name + '</li>');
           });
