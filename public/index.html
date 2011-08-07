@@ -83,14 +83,14 @@
         $("#signout").bind("click", function () {
           twttr.anywhere.signOut();
         });
-        $.getJSON('http://api.twitter.com/1/lists.json', { screen_name: screenName }, function(data) { 
+        $.ajax({ url: 'http://api.twitter.com/1/lists.json', data: { screen_name: screenName }, dataType: "jsonp", success: function(data) { 
           var htmlList = [];
           alert(data);
           $.each(data.lists, function(id, list) { 
             htmlList.push('<li>' + list.name + '</li>');
           });
           $('<ul/>', { html: htmlList.join('') }).appendTo('#lists');
-        });
+        } } );
         
       };
 
