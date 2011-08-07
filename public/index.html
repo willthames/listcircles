@@ -83,15 +83,14 @@
         $("#signout").bind("click", function () {
           twttr.anywhere.signOut();
         });
-        $.getJSON('http://api.twitter.com/1/lists.json?screen_name=' + screenName, function(data) { 
+        $.getJSON('http://api.twitter.com/1/lists.json', { screen_name: screenName }, function(data) { 
+          var htmlList = [];
           alert(data);
           $.each(data.lists, function(id, list) { 
-            $("#lists").append('<li>' + list.name + '</li>');
+            htmlList.push('<li>' + list.name + '</li>');
           });
-        })
-        .success(function() { alert("second success"); })
-        .error(function() { alert("error"); })
-        .complete(function() { alert("complete"); });
+          $('<ul/>', { html: htmlList.join('') }).appendTo('#lists');
+        });
         
       };
 
