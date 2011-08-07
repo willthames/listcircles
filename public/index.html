@@ -83,7 +83,7 @@
         $("#signout").bind("click", function () {
           twttr.anywhere.signOut();
         });
-        $.get('http://api.twitter.com/1/lists/all', function(data) { 
+        $.get('http://api.twitter.com/1/lists.json', function(data) { 
           $('#lists').html(data);
         });
       };
