@@ -1,0 +1,6 @@
+[submodule "html5reset"]
+	path = html5reset
+	url = https://github.com/murtaugh/HTML5-Reset.git
+[submodule "public/html5reset"]
+	path = public/html5reset
+	url = https://github.com/murtaugh/HTML5-Reset.git
